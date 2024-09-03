@@ -2,18 +2,35 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction:column;
-  align-items:center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const Title = styled.h1`
-color:blue;
-
+  color: #272746;
+  text-align:center;
 `;
 
-export const Row = styled.tr``;
+export const Divider = styled.hr`
+  border-style: solid #272746;
+  border-width: 2px;
+  width: 100%;
+`;
 
+export const Table = styled.table`
+  background-color: #414141;
+  width: 50%;
+  border-radius:15px;
+  color:white;
+  padding:.5rem;
+  text-align: center;
+`;
 
-export const Btn = styled.button` `
+export const Row = styled.tr`
+ 
+`;
+
+export const Btn = styled.button``;

@@ -24,6 +24,6 @@
     "sweetalert2": "^11.12.4"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standar/eslintrc.json"
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }

@@ -1,32 +1,21 @@
 import { useState, useRef } from "react";
-import { Container, Title } from "./style/StyledComponents";
-import useFetch from "./hooks/useFetch";
-import { Products, Form } from "./components";
+import { Container, Title, Divider } from "./style/StyledComponents";
+
+import { Form, TableProducts } from "./components";
 
 const App = () => {
   const [isUpdate, setIsUpdate] = useState(false);
-  // const [id, setId] = useState();
-  let inputName = useRef<HTMLInputElement >(null);
-  const inputPrice = useRef (null); ;
-  const { productos, isLoading } = useFetch("http://localhost:3000/productos");
- 
+  const [id, setId] = useState();
+  let inputName = useRef(null);
+  const inputPrice = useRef(null);
   
+
   return (
     <Container>
-      <Title>Manejo de Productos</Title>
+      <Title>Manejo de Productos React + Typescript</Title>
+      <Divider />
       <Form isUpdate={isUpdate} inputName={inputName} inputPrice={inputPrice} />
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <Products productos={productos} />
-        </tbody>
-      </table>
+      <TableProducts />
     </Container>
   );
 };

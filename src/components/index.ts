@@ -1,7 +1,6 @@
-
 import Form from "./Form";
-import Products from "./Products"
+import TableProducts from "./TableProducts"
 
 
 
-export { Form, Products };
+export { Form,  TableProducts};

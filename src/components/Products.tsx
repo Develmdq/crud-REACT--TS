@@ -1,9 +1,8 @@
 import Product from "./Product";
-import { PropsProductos } from "../interfaces/interfaces";
+import useFetch from "../hooks/useFetch";
 
-
-
-const Products: React.FC<PropsProductos> = ({ productos }) => {
+const Products = () => {
+  const { productos } = useFetch("http://localhost:3000/productos");
   return (
     <>
       {productos?.map((producto) => (
