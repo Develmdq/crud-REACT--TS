@@ -1,5 +1,6 @@
+import { FC, LegacyRef } from "react";
 import { handleSubmit } from "../utils/";
-import { FC, LegacyRef, MutableRefObject, RefObject } from "react";
+import { FormProducts, InputProducts } from "../style/StyledComponents";
 
 interface Props {
   isUpdate: boolean;
@@ -7,14 +8,27 @@ interface Props {
   inputPrice: LegacyRef<HTMLInputElement>;
 }
 
-const Form: FC<Props> = ({ isUpdate, inputName, inputPrice,  })=> {
+const Form: FC<Props> = ({ isUpdate, inputName, inputPrice }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Nombre" name="nombre" ref={inputName} />
-      <input type="text" placeholder="Precio" name="precio" ref={inputPrice} />
-      <input type="submit" value={`${isUpdate ? "Actualizar" : "Agregar"}  `} />
-    </form>
+    <FormProducts onSubmit={handleSubmit}>
+      <InputProducts
+        type="text"
+        placeholder="Nombre"
+        name="nombre"
+        ref={inputName}
+      />
+      <InputProducts
+        type="text"
+        placeholder="Precio"
+        name="precio"
+        ref={inputPrice}
+      />
+      <InputProducts
+        type="submit"
+        value={`${isUpdate ? "Actualizar" : "Agregar"}  `}
+      />
+    </FormProducts>
   );
 };
 
-export default Form
+export default Form;

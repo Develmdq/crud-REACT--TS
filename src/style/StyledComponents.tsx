@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   color: #272746;
-  text-align:center;
+  text-align: center;
 `;
 
 export const Divider = styled.hr`
@@ -20,17 +20,27 @@ export const Divider = styled.hr`
   width: 100%;
 `;
 
+export const FormProducts = styled.form`
+  
+`;
+
+export const InputProducts = styled.input`
+  ${({type})=>type}
+`;
+
 export const Table = styled.table`
   background-color: #414141;
   width: 50%;
-  border-radius:15px;
-  color:white;
-  padding:.5rem;
+  border-radius: 15px;
+  color: white;
+  padding: 0.5rem;
   text-align: center;
 `;
 
 export const Row = styled.tr`
- 
+  &:nth-child(even) {
+    background: #ff00ff;
+  }
 `;
 
 export const Btn = styled.button``;

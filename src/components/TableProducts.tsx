@@ -1,15 +1,15 @@
-import { Table } from "../style/StyledComponents";
+import { Table, Row } from "../style/StyledComponents";
 import Products from "./Products";
 
 const TableProducts = () => {
   return (
     <Table>
       <thead>
-        <tr>
+        <Row>
           <th>Nombre</th>
           <th>Precio</th>
           <th>Acciones</th>
-        </tr>
+        </Row>
       </thead>
       <tbody>
         <Products />

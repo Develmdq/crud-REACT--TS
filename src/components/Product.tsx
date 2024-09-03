@@ -3,7 +3,7 @@ import { Producto } from "../interfaces/interfaces";
 
 const Product: React.FC<Producto> = ({ nombre, precio }) => {
   return (
-    <Row>
+    <Row >
       <td>{nombre}</td>
       <td>{precio}</td>
       <td>
