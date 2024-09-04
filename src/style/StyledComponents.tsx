@@ -21,26 +21,80 @@ export const Divider = styled.hr`
 `;
 
 export const FormProducts = styled.form`
-  
-`;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
 
-export const InputProducts = styled.input`
-  ${({type})=>type}
-`;
-
-export const Table = styled.table`
-  background-color: #414141;
-  width: 50%;
-  border-radius: 15px;
-  color: white;
-  padding: 0.5rem;
-  text-align: center;
-`;
-
-export const Row = styled.tr`
-  &:nth-child(even) {
-    background: #ff00ff;
+  @media (width < 780px) {
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 
-export const Btn = styled.button``;
+export const InputProducts = styled.input`
+  ${({ type }) => type};
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #adadad;
+  outline: none;
+  &:focus {
+    background-color: #dfdfdf;
+  }
+  &[type="submit"] {
+    background-color: #272746;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+
+    &:active {
+      scale: 0.95;
+    }
+  }
+`;
+
+export const Table = styled.table`
+  margin-top: 3rem;
+  width: 50%;
+  color: white;
+  padding: 0.3rem;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0 2px;
+
+  @media (width < 780px) {
+    width: 100%;
+  }
+`;
+
+export const Thead = styled.thead`
+  background-color: #050505;
+`;
+
+export const Tbody = styled.tbody`
+  color: #231f2c;
+  font-weight: bold;
+`;
+
+export const Row = styled.tr<{ $background: string }>`
+  height: 40px;
+  background-color: ${({ $background }) => $background};
+  &:nth-child(even) {
+    background-color: #b9b9b9;
+  }
+`;
+
+export const Btn = styled.button<{ $background: string }>`
+  background-color: ${({ $background }) => $background};
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:active {
+    scale: 0.95;
+  }
+`;

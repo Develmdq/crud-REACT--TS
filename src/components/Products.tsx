@@ -1,8 +1,9 @@
+import { useContext } from "react";
+import { ProductsContext } from "../context/ProductsContext";
 import Product from "./Product";
-import useFetch from "../hooks/useFetch";
 
 const Products = () => {
-  const { productos } = useFetch("http://localhost:3000/productos");
+  const {productos} = useContext(ProductsContext)
   return (
     <>
       {productos?.map((producto) => (

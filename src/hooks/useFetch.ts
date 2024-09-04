@@ -16,7 +16,7 @@ const useFetch = (url: string) => {
       .finally(() => setIsLoading(false));
   }, [url]);
 
-  return { productos, isLoading };
+  return { productos, isLoading, setProductos };
 };
 
 export default useFetch;

@@ -1,19 +1,19 @@
-import { Table, Row } from "../style/StyledComponents";
+import { Table, Row, Thead, Tbody } from "../style/StyledComponents";
 import Products from "./Products";
 
 const TableProducts = () => {
   return (
     <Table>
-      <thead>
-        <Row>
+      <Thead>
+        <Row $background='back'>
           <th>Nombre</th>
           <th>Precio</th>
           <th>Acciones</th>
         </Row>
-      </thead>
-      <tbody>
+      </Thead>
+      <Tbody>
         <Products />
-      </tbody>
+      </Tbody>
     </Table>
   );
 };
