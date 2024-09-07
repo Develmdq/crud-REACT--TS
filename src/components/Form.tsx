@@ -1,14 +1,40 @@
-import { useState, useRef } from "react";
-import { handleSubmit } from "../utils/";
+import { useContext, FormEvent } from "react";
 import { FormProducts, InputProducts } from "../style/StyledComponents";
+import { ProductsContext } from "../context/ProductsContext";
+import { DataContextType } from "../interfaces/interfaces";
 
 const Form = () => {
-  const [isUpdate, setIsUpdate] = useState(false);
-  const inputName = useRef(null);
-  const inputPrice = useRef(null);
+  const { inputName, inputPrice,isUpdate } = useContext(ProductsContext ) as DataContextType;
 
-  return (
-    <FormProducts onSubmit={(e) => handleSubmit(e, isUpdate, setIsUpdate)}>
+const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  // const {  isUpdate, setIsUpdate, productos } = useContext(
+  //   ProductsContext
+  // ) as DataContextType
+  // const dataForm = new FormData();
+  // const nombre = dataForm!.get("nombre");
+  // const precio = dataForm!.get("precio");
+  // if (nombre !== "" || precio !== "") {
+  //   if (!isUpdate) {
+  //     const newProduct = {
+  //       id: productos!.length + 1,
+  //       nombre: nombre,
+  //       precio: precio,
+  //     };
+  //   } else {
+  //     const updateProduct = productos?.map((product) =>
+  //       product.id == id ? { id: id, nombre: nombre, precio: precio } : product
+  //     );
+  // setIsUpdate(false);
+  //   }
+  // } else {
+  //   // alertApp("submit");
+  // }
+};
+
+
+   return (
+    <FormProducts onSubmit={handleSubmit}>
       <InputProducts
         type="text"
         placeholder="Nombre"

@@ -1,13 +1,8 @@
-import { useState } from "react";
 import { Container, Title, Divider } from "./style/StyledComponents";
 import ProductsProvider from "./context/ProductsContext";
-
 import { Form, TableProducts } from "./components";
 
-const App = () => {
- 
-  const [id, setId] = useState();
-  
+const App = () => {  
 
   return (
     <ProductsProvider>

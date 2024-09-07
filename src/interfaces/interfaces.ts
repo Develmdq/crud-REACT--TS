@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode, MutableRefObject } from "react";
 
-
-export type ProductList = Producto[]
+export type ProductList = Producto[];
 
 export interface Producto {
   id?: number;
@@ -14,12 +13,19 @@ export interface PropsProductos {
 }
 
 export interface PropsChildren {
-  // children: ReactNode; // Será cualquier tipo de elemento hasta los no renderizables. Ojo Mejor usar: 
-  // children: StrictReactNode; // Como el anterior pero solo permite elementos renderizables.
-  children: JSX.Element | JSX.Element[]; // Será un elemento JSX o varios
+  // children: JSX.Element | JSX.Element[];
+  children: ReactNode;
 }
 
 export interface DataContextType {
+  children: JSX.Element | JSX.Element[];
   productos: ProductList | undefined;
-  isLoading: boolean
+  isLoading: boolean;
+  isUpdate: boolean;
+  inputName: MutableRefObject<HTMLInputElement>;
+  inputPrice: MutableRefObject<HTMLInputElement>;
+  id: number;
+  setId(): void;
+  setIsUpdate(): void;
+  setProductos(): void;  
 }

@@ -5,7 +5,7 @@ const TableProducts = () => {
   return (
     <Table>
       <Thead>
-        <Row $background='back'>
+        <Row $background="back">
           <th>Nombre</th>
           <th>Precio</th>
           <th>Acciones</th>
@@ -18,4 +18,4 @@ const TableProducts = () => {
   );
 };
 
-export default TableProducts
+export default TableProducts;
