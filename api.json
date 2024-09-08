@@ -1,17 +1,17 @@
 {
   "productos": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Leche",
       "precio": "100"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Pan",
       "precio": "90"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Queso",
       "precio": "120"
     }

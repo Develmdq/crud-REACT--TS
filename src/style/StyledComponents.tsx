@@ -62,7 +62,8 @@ export const Table = styled.table`
   text-align: center;
   border-collapse: separate;
   border-spacing: 0 2px;
-
+  text-transform: uppercase;
+  
   @media (width < 780px) {
     width: 100%;
   }

@@ -1,39 +1,63 @@
-import { useContext, FormEvent } from "react";
+import { useState, useContext, FormEventHandler } from "react";
 import { FormProducts, InputProducts } from "../style/StyledComponents";
 import { ProductsContext } from "../context/ProductsContext";
-import { DataContextType } from "../interfaces/interfaces";
+import { DataContextType, Producto } from "../interfaces/interfaces";
+import { alertApp } from "../utils";
+import useFetch from "../hooks/useFetch";
 
 const Form = () => {
-  const { inputName, inputPrice,isUpdate } = useContext(ProductsContext ) as DataContextType;
+  // const [newProduct, setNewPorduct]= useState()
+  const {
+    productos,
+    inputName,
+    inputPrice,
+    isUpdate,
+    setIsUpdate,
+    setProductos,
+    id,
+  } = useContext(ProductsContext) as DataContextType;
+ 
+  
 
-const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  // const {  isUpdate, setIsUpdate, productos } = useContext(
-  //   ProductsContext
-  // ) as DataContextType
-  // const dataForm = new FormData();
-  // const nombre = dataForm!.get("nombre");
-  // const precio = dataForm!.get("precio");
-  // if (nombre !== "" || precio !== "") {
-  //   if (!isUpdate) {
-  //     const newProduct = {
-  //       id: productos!.length + 1,
-  //       nombre: nombre,
-  //       precio: precio,
-  //     };
-  //   } else {
-  //     const updateProduct = productos?.map((product) =>
-  //       product.id == id ? { id: id, nombre: nombre, precio: precio } : product
-  //     );
-  // setIsUpdate(false);
-  //   }
-  // } else {
-  //   // alertApp("submit");
-  // }
-};
+  const handleSubmit: FormEventHandler<HTMLFormElement> | undefined = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const nombre = formData!.get("nombre") as string;
+    const precio = formData!.get("precio") as string;
 
+      
+        
+    
 
-   return (
+    if (nombre !== "" && precio !== "") {
+      if (!isUpdate) {
+        // const newProduct = {
+        //   id: productos!.length + 1,
+        //   nombre: nombre,
+        //   precio: precio,
+        // };
+        // setProductos([...productos, newProduct]);
+        // setNewPorduct(newProduct)
+        alertApp("agregado", undefined);
+        // Array.from(new Set(foo));
+        e.currentTarget.reset();
+        setIsUpdate(false);
+      } else {
+        const updateProduct = productos?.map((product) =>
+          product.id == id
+            ? { id: id, nombre: nombre, precio: precio }
+            : product
+        );
+        setProductos(updateProduct);
+        setIsUpdate(false);
+        e.currentTarget.reset();
+      }
+    } else {
+      alertApp("submit", undefined);
+    }
+  };
+
+  return (
     <FormProducts onSubmit={handleSubmit}>
       <InputProducts
         type="text"

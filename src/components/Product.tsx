@@ -1,25 +1,33 @@
-import { useContext, FC, MouseEvent } from "react";
+import { useState, useEffect, useContext, FC, MouseEvent } from "react";
 import { Row, Btn } from "../style/StyledComponents";
 import { DataContextType, Producto } from "../interfaces/interfaces";
 import { ProductsContext } from "../context/ProductsContext";
+import { alertApp } from "../utils";
 
-const Product: FC<Producto> = ({ nombre, precio }) => {
-  const { id, inputName, inputPrice, productos } = useContext(
-    ProductsContext
-  ) as DataContextType;
-
-  const handleProducts = ( e: MouseEvent<HTMLButtonElement>) => {
-    const action = e.currentTarget.dataset.btn;
+const Product: FC<Producto> = ({ id, nombre, precio }) => {
+  const [confirm, setConfirm] = useState(true)
+  const {
+    inputName,
+    inputPrice,
+    productos,
+    setProductos,    
+    setIsUpdate,
+    setId
+  } = useContext(ProductsContext) as DataContextType;  
+ 
+  useEffect(()=>{!confirm && setProductos(productos?.filter((producto) => producto.id !== id));},[confirm])
+ 
+  const handleProducts = (e: MouseEvent<HTMLButtonElement>) => {
+    const action = e.currentTarget.dataset.btn as string;
 
     if (action === "editar") {
       inputName.current.focus();
       inputName.current.value = nombre;
       inputPrice.current.value = precio;
-      // setId(e.target.id);
-      // setIsUpdate(true);
+      setIsUpdate(true);
+      setId(id)
     } else {
-      productos?.filter(producto => producto.id !== id)
-      // alertApp();
+      alertApp(action,{ nombre, setConfirm}); 
     }
   };
 
@@ -31,7 +39,7 @@ const Product: FC<Producto> = ({ nombre, precio }) => {
         <Btn $background="#abfcb8" onClick={handleProducts} data-btn={"editar"}>
           Editar
         </Btn>
-        <Btn $background="#ff8888" onClick={handleProducts} data-btn={"borrar"}>
+        <Btn $background="#ff8888" onClick={handleProducts} data-btn={"eliminar"}>
           Borrar
         </Btn>
       </td>

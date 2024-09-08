@@ -1,4 +1,4 @@
-import { handleProducts } from "./handleProducts";
-import { handleSubmit } from "./handleSubmit";
+import  alertApp from "./alertApp";
 
-export { handleProducts, handleSubmit };
+
+export { alertApp };
