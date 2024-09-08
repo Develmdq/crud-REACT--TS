@@ -6,7 +6,7 @@ Exercise CRUD
 ## Technologies
 ***
 A list of technologies used within the project:
-* [REACT][ContextApi - useReducer - Coustom Hooks]
+* [REACT](ContextApi - useReducer - Coustom Hooks)
 * [TYPESCRIPT]
 * [STYLED-COMPONENTS]
 * [JSON-SERVER]
