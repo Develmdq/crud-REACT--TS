@@ -49,7 +49,7 @@ const Form: FC = () => {
   const handleDataForm = (e: React.ChangeEvent<HTMLInputElement>) =>
     setDataForm({ ...dataForm, [e.target.name.toLowerCase()]: e.target.value });
 
-  // console.log('form')
+
   return (
     <FormProducts onSubmit={handleSubmit}>
       <InputProducts

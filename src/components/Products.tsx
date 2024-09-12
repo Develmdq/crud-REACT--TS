@@ -5,7 +5,7 @@ import Product from "./Product";
 
 const Products = () => {
   const { products } = useContext(ProductsContext) as DataContextType;
-//  console.log("productos");
+
   return (
     <>
       {products?.map((product) => (

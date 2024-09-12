@@ -29,7 +29,7 @@ const Product: FC<Producto> = ({ id, nombre, precio }) => {
     });
   };
 
-  // console.log('producto')
+ 
   return (
     <Row $background="#a0a0a0">
       <td>{nombre}</td>
