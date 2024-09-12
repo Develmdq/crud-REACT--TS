@@ -1,19 +1,29 @@
 {
   "productos": [
     {
-      "id": "1",
       "nombre": "Leche",
-      "precio": "100"
+      "precio": "115",
+      "id": "5c1b"
     },
     {
-      "id": "2",
+      "nombre": "sal",
+      "precio": "85",
+      "id": "490d"
+    },
+    {
       "nombre": "Pan",
-      "precio": "90"
+      "precio": "80",
+      "id": "dac5"
     },
     {
-      "id": "3",
-      "nombre": "Queso",
+      "id": "c3e2",
+      "nombre": "Manteca",
       "precio": "120"
+    },
+    {
+      "id": "b300",
+      "nombre": "Soda",
+      "precio": "80"
     }
   ]
 }

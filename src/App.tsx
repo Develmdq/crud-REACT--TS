@@ -1,20 +1,17 @@
 import { Container, Title, Divider } from "./style/StyledComponents";
-import ProductsProvider from "./context/ProductsContext";
+import {ProductsProvider} from "./context/";
 import { Form, TableProducts } from "./components";
-import ProductApp from "./ProductApp";
 
-
-const App = () => {  
-
+const App = () => {
+  // console.log('app')
   return (
     <ProductsProvider>
-      {/* <Container>
+      <Container>
         <Title>Manejo de Productos React + Typescript</Title>
         <Divider />
         <Form />
         <TableProducts />
-      </Container> */}
-      <ProductApp/>
+      </Container>
     </ProductsProvider>
   );
 };

@@ -1,29 +1,41 @@
-import { createContext, useState, useRef } from "react";
+import { createContext, useEffect, useReducer, useRef, useState } from "react";
 import { PropsChildren } from "../interfaces/interfaces";
-import useFetch from "../hooks/useFetch";
+import fetchProducts from "../fetching/fetchProducts";
+import productsAction from "./productsAction";
+import productsReducer from "./productsReducer";
 
-export const ProductsContext = createContext({});
+const ProductsContext = createContext({});
 
 const ProductsProvider = ({ children }: PropsChildren) => {
-  const [id, setId] = useState(0);
-
+  const [products, productsDispatch] = useReducer(productsReducer, []);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [dataForm, setDataForm] = useState({ nombre: "", precio: "" });
+  const [id, setId ] = useState('')
   const inputName = useRef();
   const inputPrice = useRef();
-  const [isUpdate, setIsUpdate] = useState(false);
-  const { isLoading, productos, setProductos } = useFetch("get");
+
+  useEffect(() => {
+    fetchProducts("productos", "GET").then((products) =>
+      productsDispatch({
+        type: productsAction.FETCH_PRODUCTS_GET,
+        payload: products,
+      })
+    );
+  }, []);
 
   return (
     <ProductsContext.Provider
       value={{
-        productos,
-        isLoading,
+        products,
         isUpdate,
         inputName,
         inputPrice,
+        dataForm,
         id,
-        setId,
+        productsDispatch,
         setIsUpdate,
-        setProductos,
+        setDataForm,
+        setId,
       }}
     >
       {children}
@@ -31,4 +43,4 @@ const ProductsProvider = ({ children }: PropsChildren) => {
   );
 };
 
-export default ProductsProvider;
+export { ProductsProvider, ProductsContext };

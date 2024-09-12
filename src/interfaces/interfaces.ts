@@ -3,9 +3,9 @@ import { ReactNode, MutableRefObject } from "react";
 export type ProductList = Producto[];
 
 export interface Producto {
-  id: number;
+  id?: number;
   nombre: string;
-  precio: string;
+  precio: string ;
 }
 
 export interface PropsProductos {
@@ -19,27 +19,22 @@ export interface PropsChildren {
 
 export interface DataContextType {
   children: JSX.Element | JSX.Element[];
-  productos: ProductList;
+  products: ProductList;
   isLoading: boolean;
   isUpdate: boolean;
   inputName: MutableRefObject<HTMLInputElement>;
-  inputPrice: MutableRefObject<HTMLInputElement>;
   id: number;
-  setId(id: number): void;
+  setId(id: string| undefined): void;
   setIsUpdate(isUpdate: boolean): void;
   setProductos(productos: ProductList): void;
+  addProduct(formData: FormData): void; //:TODO
+  productsDispatch({}): React.DispatchWithoutAction;
+  dataForm: Producto;
+  setDataForm(dataForm:Producto): void;
 }
 
-export interface AlertProps {
-  nombre?: string;
-  setConfirm?(confirm: boolean): void;
-}
-
-export type NewProducto = Producto | undefined;
-
-export interface Method {
-  [get: string]: string;
-  post: string;
-  patch: string;
-  delete: string;
+export interface ProductAction {
+  type: string;
+  payload: number | Producto;
+  products:ProductList
 }

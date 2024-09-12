@@ -1,15 +1,15 @@
 import Swal from "sweetalert2";
-import { AlertProps } from "../interfaces/interfaces";
 
-const alertApp = (action:string , { nombre, setConfirm }: AlertProps = {}) => {
+const alertApp = async (action: string, nombre?: string,deleteProduct?: any): Promise<any> => {
   if (action === "eliminar") {
     Swal.fire({
       title: `Se eliminará el producto: ${nombre}`,
       showCancelButton: true,
       confirmButtonText: "Eliminar",
+      confirmButtonColor: "#f83838",
     }).then((result) => {
       if (result.isConfirmed) {
-        setConfirm!(false);
+        deleteProduct();
         Swal.fire({
           title: "Eliminado!",
           icon: "success",
@@ -18,9 +18,9 @@ const alertApp = (action:string , { nombre, setConfirm }: AlertProps = {}) => {
         });
       }
     });
-  } 
+  }
 
-  if (action === "agregado") {
+  if (action === "agregar") {
     Swal.fire({
       title: "Producto agregado correctamente",
       icon: "success",
@@ -28,8 +28,16 @@ const alertApp = (action:string , { nombre, setConfirm }: AlertProps = {}) => {
       showConfirmButton: false,
     });
   }
+  if (action === "exist") {
+    Swal.fire({
+      title: "El producto ya existe",
+      icon: "error",
+      timer: 1500,
+      showConfirmButton: false,
+    });
+  }
 
-  if (action === "update") {
+  if (action === "actualizar") {
     Swal.fire({
       title: "Producto actualizado",
       icon: "success",

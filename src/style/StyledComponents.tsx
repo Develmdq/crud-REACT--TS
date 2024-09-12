@@ -86,8 +86,9 @@ export const Row = styled.tr<{ $background: string }>`
   }
 `;
 
-export const Btn = styled.button<{ $background: string }>`
+export const Btn = styled.button<{ $background: string, $color:string }>`
   background-color: ${({ $background }) => $background};
+  color: ${({$color})=> $color};
   border: none;
   border-radius: 5px;
   padding: 0.5rem;
