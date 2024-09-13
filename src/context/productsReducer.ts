@@ -11,12 +11,14 @@ const productsReducer = (state: any, action: any) => {
       return [...state, payload];
     case productsAction.FETCH_PRODUCT_DELETE:
       return state.filter((producto: Producto) => producto.id !== payload.id);
-    case productsAction.FETCH_PRODUCT_UPDATE:      
-      return state.map((producto: Producto) => producto.id === payload.id ? payload : producto);
+    case productsAction.FETCH_PRODUCT_UPDATE:
+      return state.map((producto: Producto) =>
+        producto.id === payload.id ? payload : producto
+      );
 
     default:
       return state;
   }
 };
- 
+
 export default productsReducer;

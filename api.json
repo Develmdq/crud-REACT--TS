@@ -1,11 +1,6 @@
 {
   "productos": [
     {
-      "nombre": "Leche",
-      "precio": "115",
-      "id": "5c1b"
-    },
-    {
       "nombre": "sal",
       "precio": "85",
       "id": "490d"
@@ -21,9 +16,9 @@
       "precio": "120"
     },
     {
-      "id": "b300",
       "nombre": "Soda",
-      "precio": "80"
+      "precio": "90",
+      "id": "b300"
     }
   ]
 }

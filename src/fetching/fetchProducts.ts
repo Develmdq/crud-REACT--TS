@@ -1,7 +1,8 @@
 import { Producto } from "../interfaces/interfaces";
+
 const URL_BASE: string = "http://localhost:3000/";
 
-const fetchProducts = async (
+const fetchProducts = async ( 
   path: string,
   method: "GET" | "POST" | "PUT" | "DELETE",
   data?: Producto | string
@@ -16,6 +17,3 @@ const fetchProducts = async (
 };
 
 export default fetchProducts;
-
-
-

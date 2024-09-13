@@ -28,6 +28,7 @@ const alertApp = async (action: string, nombre?: string,deleteProduct?: any): Pr
       showConfirmButton: false,
     });
   }
+
   if (action === "exist") {
     Swal.fire({
       title: "El producto ya existe",
@@ -54,6 +55,8 @@ const alertApp = async (action: string, nombre?: string,deleteProduct?: any): Pr
       confirmButtonText: "Ok",
     });
   }
+
+  
 };
 
 export default alertApp;

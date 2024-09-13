@@ -1,11 +1,10 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { ProductsContext } from "../context";
 import { DataContextType } from "../interfaces/interfaces";
 import Product from "./Product";
 
 const Products = () => {
   const { products } = useContext(ProductsContext) as DataContextType;
-
   return (
     <>
       {products?.map((product) => (

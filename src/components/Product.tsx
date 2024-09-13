@@ -6,7 +6,8 @@ import { alertApp } from "../utils";
 import fetchProducts from "../fetching/fetchProducts";
 
 const Product: FC<Producto> = ({ id, nombre, precio }) => {
-  const { productsDispatch, inputName, setIsUpdate, setDataForm, setId } = useContext(ProductsContext) as DataContextType;
+  const { productsDispatch, inputName, setIsUpdate, setDataForm, setId } =
+    useContext(ProductsContext) as DataContextType;
 
   const handleProducts = (e: MouseEvent<HTMLButtonElement>) => {
     const action = e.currentTarget.dataset.btn as string;
@@ -29,7 +30,6 @@ const Product: FC<Producto> = ({ id, nombre, precio }) => {
     });
   };
 
- 
   return (
     <Row $background="#a0a0a0">
       <td>{nombre}</td>

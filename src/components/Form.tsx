@@ -42,13 +42,11 @@ const Form: FC = () => {
         setIsUpdate(false);
       }
     }
-
     setDataForm({ nombre: "", precio: "" });
   };
 
   const handleDataForm = (e: React.ChangeEvent<HTMLInputElement>) =>
     setDataForm({ ...dataForm, [e.target.name.toLowerCase()]: e.target.value });
-
 
   return (
     <FormProducts onSubmit={handleSubmit}>
